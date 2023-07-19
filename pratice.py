@@ -299,6 +299,7 @@ print()
 print("Expection in python")
 g=0
 n=8
+
 try:
     res=n/g
 except ZeroDivisionError:
@@ -307,3 +308,19 @@ else:
     print("Exit")
 finally:
     print("The problem is solved ")
+# nums=[21,45,88,4]
+# if len(nums)>3:
+#     raise Exception(" length of the given list must be greter than 3")
+
+#----------------------Modules------------------------
+# print("Modules")
+# import abc # all module
+# from abc import ABC
+# import abc as a
+#---------------List comprehension in python---------
+lst=[num for num in range(30) if num % 2==0]
+print(lst)
+# inp=[int(input("Enter the numbers to store in list :- ")) for i in range(10)]
+# print(inp)
+
+#-------------------Itererator------------------------------------
