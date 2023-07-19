@@ -183,5 +183,127 @@ print(car.get_milege())
 car.drive(600)
 print(car.get_milege())
 #-------------------data abstraction in python------------------------
-from abc import ABC,abstractclassmethod
-class Area
+from abc import abstractmethod,ABC
+class Shape:
+    @abstractmethod
+    def Area(self):
+        pass
+    def Perimeter(self):
+        pass
+class Rectnagle(Shape):
+    def __init__(self,length,width):
+        self.length=length
+        self.width=width
+    def Area(self):
+        return self.width*self.length
+    def Perimeter(self):
+        return 2*(self.length+self.width)
+class Circle(Shape):
+    def __init__(self,radius):
+        self.radius=radius
+    def Area(self):
+        return 3.14*self.radius*self.radius
+    def Perimeter(self):
+        return 2*3.14*self.radius
+c=Circle(3)
+r=Rectnagle(4,3)
+print(c.Area())
+print(r.Area())
+print(c.Perimeter())
+print(r.Perimeter())
+#-------------------defaut arguments in python------------------
+def numbers(x,y=30):
+    print("First number is :- ",x,end=" ")
+    print()
+    print("Second number is :-",y,end=" ")
+    print()
+numbers(2)
+numbers(12,56)
+#-------------------defaut arguments in python------------------
+print()
+print("Section")
+def n(n1,n2):
+    print(n1)
+    print(n2)
+n(n2=89,n1=56)#key Word in a fucntion       
+#-------------------- variable length arguments in python--
+print()
+print("Section")
+def variable_length_args(*a):
+    for i in a:
+        print(i,end=" ")
+variable_length_args(12,1,456,4,69,8)
+#-------------------- variable length arguments kwrwgs send the data as a key values pair in python--
+print()
+print("Section")
+def variable_length_kwrgs(**b):
+    for x,y in b.items():
+        print(x,y,end=" ")
+variable_length_kwrgs(name="abhi",name2 ='elis')
+#-----------------------Lambada fucntions----------
+print()
+print()
+print("Section")
+add=lambda num:1/num
+print("The reciproiocal of the number is ",add(2))
+
+print("Add numbers using lambda functions")
+add1=lambda x,y:x+y
+print(add1(12,13))
+
+print("Is palindrome or not ")
+result=lambda s:s==s[::-1]
+s="malayalam"
+print(result(s))
+print(s[::-1])
+
+print("Filter the odd elements in the list using along with lambda")
+oddnum=list(filter(lambda n:n%2==0,ls))
+ls=[2,12,545,45,4,5]
+print(oddnum)
+
+print("The square of all valuse in the list")
+print(list(map(lambda x:x**2 ,ls)))
+print("Factorial of a number by using a lambada and recrusion")
+factorial=lambda n:1 if n==0 else n*factorial(n-1)
+print(factorial(6))
+
+print()
+sor=[(1,2),(5,6),(8,1),(7,9)]
+print("Sorted a a tuples by using it is second element")
+print(sorted(sor,key=lambda n:n[1]))
+
+print()
+print("Convert the list of string in a list to upper case using lamda function")
+lowercase=['abhinand','ananthu','jasmin']
+uppercase=list(map(lambda x:x.upper(),lowercase))
+print(uppercase)
+
+print()
+print("Distructor in python")
+class Employee:
+    def __init__(self):
+        print("Employee Created")
+    def __del__(self):
+        print("Destructor called")
+def Creating_object():
+    print("Making a object")
+    obj=Employee()
+    print("Functions is ended")
+    return obj
+print("Calling the creating object function")
+obj=Creating_object()
+print("Programme is ended")
+
+print()
+print("Expection in python")
+g=0
+n=8
+try:
+    res=n/g
+except ZeroDivisionError:
+    print("The operation cant be alloweded")
+else:
+    print("Exit")
+finally:
+    print("The problem is solved ")
