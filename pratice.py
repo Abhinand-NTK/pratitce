@@ -324,3 +324,95 @@ print(lst)
 # print(inp)
 
 #-------------------Itererator------------------------------------
+print()
+my_list=[12,54,87,87,8,78,785,4,5]  
+my_iter=iter(my_list)
+print(next(my_iter))
+print(next(my_iter))
+print(next(my_iter))
+print(next(my_iter))
+print(next(my_iter))
+print(next(my_iter))
+print(next(my_iter))
+print(next(my_iter))
+print(next(my_iter))
+try:
+    print(next(my_iter))
+except StopIteration:
+    print("Range is reached")
+finally:
+    print("Finshed")
+
+h=[56,64,465,4]
+l=['a','d','v','t']
+c=zip(h,l)
+print(c)
+
+print()
+print('Genrator in python')
+def simple():
+    for i in range(10):
+        if i % 2==0:
+            yield i
+for i in simple():
+    print(i)
+
+print('Section')
+print()
+def counter(n):
+    while n>0:
+        yield n
+        print("After Yield")
+        n-=1
+o=counter(3)
+print(next(o))
+print(next(o))
+print(next(o))
+
+print("Section for decoraters")
+print()
+def outer():
+    def inner():
+        print('Abhi')
+try:
+    call=inner()
+    print(call)
+except NameError:
+    print("The lexical scope of the inner function is only limited inside the outer function we need some other techniques to solve this")
+finally:
+    print("Cleared")
+def outer_1():
+    def inner_1():
+        print("I am inside a outer")
+    return inner_1
+call_1=outer_1()
+call_1()    
+
+print("Example of the above two")
+print()
+def divide(x,y):
+    print(x/y)
+def outer_div(fun):
+    def inner(x,y):
+        if x<y:
+            x,y=y,x
+        return fun(x,y)
+    return inner
+caller_3=outer_div(divide)
+caller_3(2,4)
+print("We modified the function without modifying anything inside the function hence it is known as decorater")
+
+print("Using @ decorter key word")
+
+def outer_2(fun):
+    def inner(x,y):
+        if x<y:
+            x,y=y,x
+        return fun(x,y)
+    return inner    
+@outer_2
+def div_(x,y):
+    r=(x/y)
+    print(r)
+    
+div_(2,4)
